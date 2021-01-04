@@ -35,4 +35,6 @@ s.play_audio()
 ```
 
 ## Note
-This is really bare bones and simple, but it's quite effective I think. You can really do anything you want with it. I'm thinking about adding in attack and release features at some point, but I have to learn more about how they work IRL to know how to represent that in a computer. 
+This is really bare bones and simple, but it's quite effective I think. It's definitely a good starting point, at least for what I wanted it for. I'm thinking about adding in attack and release features at some point, but I have to learn more about how they work IRL to know how to represent that in a computer. 
+
+If you have any suggestions or comments, please lmk.
