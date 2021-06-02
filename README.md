@@ -1,29 +1,36 @@
 # jc3000
-A small set of extensible python modules for generating music. Inspired by [this](https://walkerart.org/collections/artworks/wind-chime-after-dream) which was inspired by [this](https://en.wikipedia.org/wiki/John_Cage) (hence the jc3000).
+A small set of python modules for generating music. Inspired by [this](https://walkerart.org/collections/artworks/wind-chime-after-dream) which was inspired by [this](https://en.wikipedia.org/wiki/John_Cage) (that's why it's called jc3000).
 
-You can generate any notes you want based on any fundamental, and using either just or equal temperament. Shoutout to [this page](https://pages.mtu.edu/~suits/Physicsofmusic.html) for really good instruction on how music and scales work at the physical level. Without this page, I really wouldn't have been able to make this. 
+You can generate any notes you want based on any fundamental, and using either just or equal temperament. 
 
-I use [simpleaudio](simpleaudio.readthedocs.io/) to actually play the audio, though in the future I'd like to try using native Python or maybe Cython to do audio playback. I also use [scipy](https://www.scipy.org/) to save the audio as wavfiles, but again, I'd like to see if I could make this a native Python action in the future. I also generate sinwaves with [numpy](https://numpy.org/).
+# Reading
+[This page](https://pages.mtu.edu/~suits/Physicsofmusic.html) has really good information on how music and scales work at the physical level. 
 
 ## Examples
 
 * Play the licc
 ```
-from Scales import get_the_licc
+from jc300.Sequence import Sequence
 
-the_licc = get_the_licc()
+s = Sequence(fs=44100, fundamental=440, equal=True)
+s.add_note('d', duration=.125)
+s.add_note('e', .125)
+s.add_note('f', .125)
+s.add_note('g', .125)
+s.add_note('e', .257)  # .257 for ~swing-iness~
+s.add_note('c', .125)
+s.add_note('d', .25)
 
-the_licc.play_audio()
-the_licc.write_file('the_licc.wav')
+s.write_file('the_licc.wav')
 ```
 
 * Play the C major scale with concert A set to 432 Hz.
 ```
-from Sequence import Sequence
+from jc3000.Sequence import Sequence
 
 s = Sequence(fundamental=432)
 
-notes = ['c','d','e','f','g','a','b','c']
+notes = ['cdefgabc']
 
 for i, note in enumerate(notes):
     if i < 5:
@@ -31,10 +38,5 @@ for i, note in enumerate(notes):
     else:
         s.add_note(note, octave=1)
         
-s.play_audio()
+s.write_file('cmajor_432hz.wav')
 ```
-
-## Note
-This is really bare bones and simple, but it's quite effective I think. It's definitely a good starting point, at least for what I wanted it for. I'm thinking about adding in attack and release features at some point, but I have to learn more about how they work IRL to know how to represent that in a computer. 
-
-If you have any suggestions or comments, please lmk.
