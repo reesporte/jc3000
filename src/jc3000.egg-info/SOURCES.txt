@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/jc3000/Note.py
+src/jc3000/Sequence.py
+src/jc3000/__init__.py
+src/jc3000.egg-info/PKG-INFO
+src/jc3000.egg-info/SOURCES.txt
+src/jc3000.egg-info/dependency_links.txt
+src/jc3000.egg-info/requires.txt
+src/jc3000.egg-info/top_level.txt

@@ -1,4 +1,4 @@
-from jc3000.Sequence import *
+from jc3000 import Sequence
 import random
 
 '''generate song in c major with concert A set to 440 hz in equal temperament'''

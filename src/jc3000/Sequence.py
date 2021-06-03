@@ -2,18 +2,10 @@ import numpy as np
 from scipy.io.wavfile import write
 from .Note import Note, gen_note
 
-
 class Sequence(object):
     '''create a sequence of notes to play'''
-    # i mean sequence in the mathematical sense, not musical, but
-    # you could technically use this class to make a sequence in the musical sense
-    # but you don't have to, which is the main point i'm trying to make
 
     def __init__(self, fs=44100, fundamental=440, equal=True, voices=1):
-        # default sampling rate is 44100 because
-        # https://en.wikipedia.org/wiki/44,100_Hz#Origin
-        # default concert a is 440 hz bc
-        # [https://en.wikipedia.org/wiki/A440_(pitch_standard)]
         super(Sequence, self).__init__()
         self.fs = fs
         if equal:
@@ -71,7 +63,7 @@ class Sequence(object):
     def add_note(self, note, duration=0.25, octave=0, voice=0):
         '''
         adds a note of a given duration (in seconds) and
-        octave (relative to note_4) to the sequence
+        octave (relative to note 4) to the sequence at the voice index
         '''
         self.sequence_notes[voice].append(Note(note, duration, octave))
         self.sequence[voice].append(gen_note(duration, octave,
@@ -92,28 +84,29 @@ class Sequence(object):
                 ))
 
     def _get_note_key_by_index(self, index: int):
+        '''convenience function'''
         for k, v in self.notes.items():
             if v['index'] == index:
                 return k
 
+    def _get_note_by_interval(self, note_name: str, interval: int):
+        return self._get_note_key_by_index((self.notes[note_name]['index'] + interval) % 12)
+
     def get_minor_third(self, note_name):
-        return self._get_note_key_by_index((self.notes[note_name]['index'] + 3) % 12)
+        return self._get_note_by_interval(note_name, 3)
 
     def get_major_third(self, note_name):
-        return self._get_note_key_by_index((self.notes[note_name]['index'] + 4) % 12)
+        return self._get_note_by_interval(note_name, 4)
 
     def get_fifth(self, note_name):
-        return self._get_note_key_by_index((self.notes[note_name]['index'] + 7) % 12)
-
-    def get_note_by_interval(self, note_name: str, interval: int):
-        return self._get_note_key_by_index((self.notes[note_name]['index'] + interval) % 12)
+        return self._get_note_by_interval(note_name, 7)
 
     def get_chromatic_notes(self):
         '''get the names of all the notes'''
         return list(self.notes.keys())
 
     def get_stacked_notes(self):
-
+        '''concatenate notes'''
         if not self.stacked_notes:
             notes = []
             for s in self.sequence:
@@ -124,7 +117,6 @@ class Sequence(object):
 
     def write_file(self, filename):
         '''write audio to wavefile'''
-        # concatenate notes
-        audio = self.get_stacked_notes()
-        # write to file
-        write(filename, self.fs, audio)
+        if filename[-4:] != '.wav':
+            filename += '.wav'
+        write(filename, self.fs, self.get_stacked_notes())
