@@ -10,7 +10,7 @@ Default sample rate is [44,100 Hz](https://en.wikipedia.org/wiki/44,100_Hz#Origi
 Default concert A is [440 Hz](https://en.wikipedia.org/wiki/A440_(pitch_standard)).  
 
 ## Installation
-You can install it via pip. It requires numpy and scipy. Probably not compatible with python <= 3.6.  
+You can install it via pip. It requires numpy. Probably not compatible with python <= 3.6.  
 
 ```
 python3 -m pip install jc3000

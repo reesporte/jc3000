@@ -10,7 +10,7 @@ def main():
     time_sig_num = 6
     time_sig_den = 8
     bpm = 60
-    song_duration_secs = 180
+    song_duration_secs = 10
 
     last_four_chosen = []
     i = 1
