@@ -1,3 +1,5 @@
+import struct
+import sys
 import numpy as np
 from .Note import Note, gen_note
 
@@ -146,9 +148,9 @@ def write(filename, rate, data):
         # fmt chunk
         header_data += b"fmt "
         if dkind == "f":
-            format_tag = WAVE_FORMAT.IEEE_FLOAT
+            format_tag = 0x0003
         else:
-            format_tag = WAVE_FORMAT.PCM
+            format_tag = 0x0001
         if data.ndim == 1:
             channels = 1
         else:
@@ -196,3 +198,8 @@ def write(filename, rate, data):
             fid.close()
         else:
             fid.seek(0)
+
+
+def _array_tofile(fid, data):
+    # ravel gives a c-contiguous buffer
+    fid.write(data.ravel().view("b").data)
