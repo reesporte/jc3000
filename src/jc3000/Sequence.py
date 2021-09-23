@@ -48,18 +48,18 @@ class Sequence(object):
         """set up the basic notes starting with fundamental in just temperament"""
         notes = {}
 
-        notes["uni"] = {"interval": 1, "index": 0}
-        notes["min2"] = {"interval": 25 / 24, "index": 1}
-        notes["maj2"] = {"interval": 9 / 8, "index": 2}
-        notes["min3"] = {"interval": 6 / 5, "index": 3}
-        notes["maj3"] = {"interval": 5 / 4, "index": 4}
-        notes["4"] = {"interval": 4 / 3, "index": 5}
-        notes["dim5"] = {"interval": 45 / 32, "index": 6}
-        notes["5"] = {"interval": 3 / 2, "index": 7}
-        notes["min6"] = {"interval": 8 / 5, "index": 8}
-        notes["maj6"] = {"interval": 5 / 3, "index": 9}
-        notes["min7"] = {"interval": 9 / 5, "index": 10}
-        notes["maj7"] = {"interval": 15 / 8, "index": 11}
+        notes["a"] = {"interval": 1, "index": 0}
+        notes["a#"] = {"interval": 25 / 24, "index": 1}
+        notes["b"] = {"interval": 9 / 8, "index": 2}
+        notes["c"] = {"interval": 6 / 5, "index": 3}
+        notes["c#"] = {"interval": 5 / 4, "index": 4}
+        notes["d"] = {"interval": 4 / 3, "index": 5}
+        notes["d#"] = {"interval": 45 / 32, "index": 6}
+        notes["e"] = {"interval": 3 / 2, "index": 7}
+        notes["f"] = {"interval": 8 / 5, "index": 8}
+        notes["f#"] = {"interval": 5 / 3, "index": 9}
+        notes["g"] = {"interval": 9 / 5, "index": 10}
+        notes["g#"] = {"interval": 15 / 8, "index": 11}
         self.notes = notes
 
     def add_note(self, note, duration=0.25, octave=0, voice=0):
