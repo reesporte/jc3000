@@ -4,12 +4,6 @@ A small python package for generating music. Inspired by [this](https://walkerar
 You can generate any notes you want based on any [fundamental](https://en.wikipedia.org/wiki/Fundamental_frequency) _(the frequency of concert A in this case, fundamental as a term is used kind of loosely)_. You can also use either just or equal [temperament](https://pages.mtu.edu/~suits/scales.html). 
 
 No guarantees things won't break in the future, I'm still tweaking things, but I think the general API should stay fairly consistent.
-## More reading
-[This page](https://pages.mtu.edu/~suits/Physicsofmusic.html) has really good information on how music and scales work at the physical level. 
-
-Default sample rate is [44,100 Hz](https://en.wikipedia.org/wiki/44,100_Hz#Origin).  
-Default concert A is [440 Hz](https://en.wikipedia.org/wiki/A440_(pitch_standard)).  
-
 ## Installation
 You can install it via pip. It requires numpy. Probably not compatible with python <= 3.6.  
 
@@ -51,3 +45,9 @@ for i, note in enumerate(notes):
         
 s.write_file('cmajor_432hz.wav')
 ```
+## More info
+[This page](https://pages.mtu.edu/~suits/Physicsofmusic.html) has really good information on how music and scales work at the physical level. 
+
+Default sample rate is [44,100 Hz](https://en.wikipedia.org/wiki/44,100_Hz#Origin).  
+Default concert A is [440 Hz](https://en.wikipedia.org/wiki/A440_(pitch_standard)).  
+
