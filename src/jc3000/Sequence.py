@@ -62,14 +62,16 @@ class Sequence(object):
         notes["g#"] = {"interval": 15 / 8, "index": 11}
         self.notes = notes
 
-    def add_note(self, note, duration=0.25, octave=0, voice=0):
+    def add_note(self, note, duration=0.25, octave=0, voice=0, silent=False):
         """
         adds a note of a given duration (in seconds) and
         octave (relative to note 4) to the sequence at the voice index
         """
         self.sequence_notes[voice].append(Note(note, duration, octave))
         self.sequence[voice].append(
-            gen_note(duration, octave, self.notes[note]["interval"], self.fundamental, self.fs)
+            gen_note(
+                duration, octave, self.notes[note]["interval"], self.fundamental, self.fs, silent
+            )
         )
 
     def transpose(self, half_steps=1, voice=0):
