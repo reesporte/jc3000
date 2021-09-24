@@ -3,6 +3,7 @@ A small python package for generating music. Inspired by [this](https://walkerar
 
 You can generate any notes you want based on any [fundamental](https://en.wikipedia.org/wiki/Fundamental_frequency) _(the frequency of concert A in this case, fundamental as a term is used kind of loosely)_. You can also use either just or equal [temperament](https://pages.mtu.edu/~suits/scales.html). 
 
+No guarantees things won't break in the future, I'm still tweaking things, but I think the general API should stay fairly consistent.
 ## More reading
 [This page](https://pages.mtu.edu/~suits/Physicsofmusic.html) has really good information on how music and scales work at the physical level. 
 
