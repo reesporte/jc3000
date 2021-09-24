@@ -1,9 +1,10 @@
 # jc3000
-A small python package for generating music. Inspired by [this](https://walkerart.org/collections/artworks/wind-chime-after-dream) which was inspired by [this](https://en.wikipedia.org/wiki/John_Cage) (that's why it's called jc3000).
+A small python package for generating music. Inspired by [this](https://walkerart.org/collections/artworks/wind-chime-after-dream) which was inspired by [this](https://en.wikipedia.org/wiki/John_Cage).
 
-You can generate any notes you want based on any [fundamental](https://en.wikipedia.org/wiki/Fundamental_frequency) _(the frequency of concert A in this case, fundamental as a term is used kind of loosely)_. You can also use either just or equal [temperament](https://pages.mtu.edu/~suits/scales.html). 
+You can generate any notes you want based on any [fundamental](https://en.wikipedia.org/wiki/Fundamental_frequency) _(the frequency of concert A in this case, fundamental is used kind of loosely)_. You can also use either just or equal [temperament](https://en.wikipedia.org/wiki/Musical_temperament). 
 
 No guarantees things won't break in the future, I'm still tweaking things, but I think the general API should stay fairly consistent.
+
 ## Installation
 You can install it via pip. It requires numpy. Probably not compatible with python <= 3.6.  
 
@@ -45,9 +46,8 @@ for i, note in enumerate(notes):
         
 s.write_file('cmajor_432hz.wav')
 ```
-## More info
-[This page](https://pages.mtu.edu/~suits/Physicsofmusic.html) has really good information on how music and scales work at the physical level. 
 
+## More
 Default sample rate is [44,100 Hz](https://en.wikipedia.org/wiki/44,100_Hz#Origin).  
 Default concert A is [440 Hz](https://en.wikipedia.org/wiki/A440_(pitch_standard)).  
 
